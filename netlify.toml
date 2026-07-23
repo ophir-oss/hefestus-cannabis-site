@@ -1,0 +1,16 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Content-Security-Policy intentionally NOT set yet. This site embeds a live
+# HubSpot form (js.hsforms.net + HubSpot's own sub-resources) on /book-a-demo/;
+# a wrong CSP can silently break that embed with no error visible until a real
+# visitor hits it. Add CSP only after testing it against a real deployed
+# preview (not file://, headers don't apply locally) with the HubSpot form
+# actually submitting successfully. A reasonable starting point to test:
+#   default-src 'self'; script-src 'self' https://js.hsforms.net https://*.hsforms.com https://*.hubspot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://img.youtube.com data:; frame-src https://*.hubspot.com https://www.youtube.com; connect-src 'self' https://*.hubspot.com https://*.hsforms.com
