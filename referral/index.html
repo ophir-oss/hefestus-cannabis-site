@@ -918,9 +918,36 @@
       document.getElementById("ndaSignature").value = state.name;
       document.getElementById("ndaReferrerName").textContent = state.name;
       document.getElementById("ndaReferrerType").textContent = state.type === "company" ? "a Company" : "an Individual";
+      logReferralSignupToHubSpot(state);
       checkNdaReady();
       showStep(2);
     });
+
+    // Logs Step 1 details to HubSpot as soon as the referrer completes it, independent
+    // of whether they finish the NDA/agreement steps. Fire-and-forget: never blocks the
+    // wizard's own flow if the network call fails or is slow.
+    function logReferralSignupToHubSpot(state) {
+      var nameParts = state.name.split(/\s+/);
+      var firstName = nameParts.shift() || "";
+      var lastName = nameParts.join(" ");
+      var messageParts = ["Referring as: " + (state.type === "company" ? "Company" : "Individual")];
+      if (state.hefestusContact) { messageParts.push("Point of contact at Hefestus: " + state.hefestusContact); }
+      fetch("https://api.hsforms.com/submissions/v3/integration/submit/242305834/dcd3b022-b556-49b4-8df6-276383137ca9", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fields: [
+            { name: "firstname", value: firstName },
+            { name: "lastname", value: lastName },
+            { name: "email", value: state.email },
+            { name: "company", value: state.company || "" },
+            { name: "message", value: messageParts.join(". ") },
+            { name: "lead_source_detail", value: "hefestus-cannabis referral signup" }
+          ],
+          context: { pageUri: window.location.href, pageName: document.title }
+        })
+      }).catch(function (err) { console.error("HubSpot referral logging failed:", err); });
+    }
 
     // --- Step 2: NDA signing ---
     var ndaCheck = document.getElementById("ndaCheck");
