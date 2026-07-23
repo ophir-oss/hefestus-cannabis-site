@@ -3,3 +3,7 @@
 # /country and /events-page carried negligible content and negligible risk, so they are
 # left to 404 rather than redirected to anything.
 /blog /resources/ 301
+# /book-a-trial/ was the page's original name before the site's copy moved to demo-based
+# language (2026-07-23); redirect it to /book-a-demo/ so any bookmark or inbound link
+# from that period still lands on a real page instead of a 404.
+/book-a-trial/ /book-a-demo/ 301
