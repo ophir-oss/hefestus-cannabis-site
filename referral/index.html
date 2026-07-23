@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hefestus Referral Partner Program, Sign Up</title>
+<meta name="description" content="Introduce a lead to Hefestus and get paid when it closes. Sign up for the Hefestus Referral Partner Program." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.hefestus-cannabis.com/referral/" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hefestus Referral Partner Program">
+<meta property="og:description" content="Introduce a lead to Hefestus and get paid when it closes. Sign up for the Hefestus Referral Partner Program.">
+<meta property="og:url" content="https://www.hefestus-cannabis.com/referral/">
+<meta property="og:image" content="https://www.hefestus-cannabis.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hefestus Referral Partner Program">
+<meta name="twitter:description" content="Introduce a lead to Hefestus and get paid when it closes. Sign up for the Hefestus Referral Partner Program.">
+<meta name="twitter:image" content="https://www.hefestus-cannabis.com/assets/og-image.png">
+<!--
+  PROTOTYPE, front-end only, no backend wired up.
+  Source of truth for the legal/commercial text on this page is
+  O-output/02-referral-program-rollout/signup-website/index.html; this is a hosted
+  mirror. Edit the source first, then resync here, do not edit only this copy.
+  Deliberately unlisted: not in sitemap.xml, Disallow'd in robots.txt, noindex above,
+  and not linked from any nav, footer, or button anywhere on the public site. Reached
+  only by sharing this URL directly.
+  Five steps, matching how B2B partner programs typically sequence this: NDA signed
+  first (so program specifics are safe to share under confidentiality), full commercial
+  agreement signed second, as its own separate document.
+    1. Initial details, form1
+    2. NDA signing, draft-nda.md, signature: ndaSignature / ndaCheck
+    3. Program main points, informational only, no signature
+    4. Full agreement signing, draft-referral-agreement.md, signature: agreementSignature / agreementCheck
+    5. Confirmation
+  Before this goes live: connect step 1 submission to HubSpot (create/tag contact as
+  referral partner), capture both signed documents as stored records, and confirm the
+  document's remaining "Open Items Before Signature" are resolved.
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+  :root {
+    --navy: #2D3954;
+    --slate: #7C8CA5;
+    --steel: #475A75;
+    --grey: #DFE0DC;
+    --paper: #F6F5F1;
+    --surface: #FFFFFF;
+    --ink: #20293A;
+    --muted: #5C6B82;
+    --border: #DCDCD5;
+    --success: #4C7A5E;
+    --danger: #B3483F;
+    --focus: #475A75;
+    --texture-color: #2D3954;
+    --texture-opacity: 0.05;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #151A22;
+      --surface: #1D242F;
+      --ink: #E8E9E4;
+      --muted: #9FADC2;
+      --border: #333E4E;
+      --grey: #2D3954;
+      --navy: #C4CEDC;
+      --slate: #9FB0C7;
+      --steel: #9FB0C7;
+      --success: #7FB99A;
+      --danger: #E08579;
+      --focus: #9FB0C7;
+      --texture-color: #DFE0DC;
+      --texture-opacity: 0.05;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #151A22;
+    --surface: #1D242F;
+    --ink: #E8E9E4;
+    --muted: #9FADC2;
+    --border: #333E4E;
+    --grey: #2D3954;
+    --navy: #C4CEDC;
+    --slate: #9FB0C7;
+    --steel: #9FB0C7;
+    --success: #7FB99A;
+    --danger: #E08579;
+    --focus: #9FB0C7;
+    --texture-color: #DFE0DC;
+    --texture-opacity: 0.05;
+  }
+  :root[data-theme="light"] {
+    --paper: #F6F5F1;
+    --surface: #FFFFFF;
+    --ink: #20293A;
+    --muted: #5C6B82;
+    --border: #DCDCD5;
+    --navy: #2D3954;
+    --slate: #7C8CA5;
+    --steel: #475A75;
+    --success: #4C7A5E;
+    --danger: #B3483F;
+    --focus: #475A75;
+    --texture-color: #2D3954;
+    --texture-opacity: 0.05;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: 'Rubik', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='64'%3E%3Ctext x='0' y='42' font-family='Rubik, sans-serif' font-size='22' font-weight='700' letter-spacing='6' fill='%232D3954' opacity='0.05'%3EHOUSE OF AUTOMATION%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    line-height: 1.5;
+  }
+
+  .frame { width: 100%; max-width: 480px; }
+
+  .brandbar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding: 0 4px;
+  }
+  .brand-lockup { display: flex; align-items: center; gap: 8px; }
+  .brand-logo { height: 26px; width: auto; flex-shrink: 0; }
+  .brand-mark {
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .brand-tag {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+  .program-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 36px 32px 30px;
+    box-shadow: 0 1px 2px rgba(20, 24, 32, 0.04);
+  }
+
+  .progress { margin-bottom: 28px; }
+  .progress-track {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .progress-seg {
+    height: 3px;
+    flex: 1;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-seg::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--navy);
+    transition: width 0.35s ease;
+  }
+  .progress-seg.done::after { width: 100%; }
+  .progress-seg.active::after { width: 55%; }
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--muted);
+  }
+  .progress-labels span.current { color: var(--ink); font-weight: 600; }
+
+  .step { display: none; }
+  .step.active { display: block; animation: rise 0.28s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .step.active { animation: none; }
+    * { transition-duration: 0.001ms !important; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 14.5px;
+    color: var(--muted);
+    margin: 0 0 26px;
+    max-width: 42ch;
+  }
+
+  .field { margin-bottom: 18px; }
+  label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input[type="text"]:focus-visible, input[type="email"]:focus-visible {
+    border-color: var(--focus);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 22%, transparent);
+  }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
+  .error-text {
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 5px;
+    display: none;
+  }
+  .field.invalid input { border-color: var(--danger); }
+  .field.invalid .error-text { display: block; }
+
+  .segmented {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .segmented button {
+    flex: 1;
+    padding: 9px 10px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--paper);
+    border: none;
+    cursor: pointer;
+  }
+  .segmented button + button { border-left: 1px solid var(--border); }
+  .segmented button[aria-pressed="true"] {
+    background: var(--navy);
+    color: var(--paper);
+  }
+  .segmented button:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+
+  #companyField { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.25s ease, opacity 0.25s ease; }
+  #companyField.shown { max-height: 100px; opacity: 1; }
+
+  .agreement-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--paper);
+    padding: 16px 18px;
+    max-height: 220px;
+    overflow-y: auto;
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .agreement-box h2 {
+    font-size: 12px;
+    color: var(--ink);
+    margin: 14px 0 4px;
+  }
+  .agreement-box h2:first-child { margin-top: 0; }
+  .agreement-box p { margin: 0 0 4px; }
+
+  .nda-reader {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .nda-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+  }
+  .nda-toolbar .reader-buttons { display: flex; gap: 6px; }
+  .nda-progress-note {
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  button.chip-toggle {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--steel);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  button.chip-toggle:hover { border-color: var(--focus); color: var(--ink); }
+  button.chip-toggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+  .nda-jump {
+    display: flex;
+    gap: 5px;
+    padding: 8px 12px 0;
+    overflow-x: auto;
+  }
+  .nda-jump-btn {
+    flex-shrink: 0;
+    width: 21px; height: 21px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nda-jump-btn:hover { border-color: var(--focus); color: var(--ink); }
+  .nda-jump-btn.read { background: var(--navy); border-color: var(--navy); color: var(--paper); }
+  .nda-jump-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+  .nda-sections {
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 4px 12px 8px;
+  }
+  .nda-preamble {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 10px 2px 12px;
+    border-bottom: 1px solid var(--border);
+    margin: 0 0 2px;
+  }
+  .nda-preamble strong { color: var(--ink); }
+  details.nda-section { border-bottom: 1px solid var(--border); }
+  details.nda-section:last-child { border-bottom: none; }
+  details.nda-section summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 9px 2px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  details.nda-section summary::-webkit-details-marker { display: none; }
+  details.nda-section summary::before {
+    content: "+";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  details.nda-section[open] summary::before { content: "\2013"; }
+  details.nda-section summary .read-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--success);
+    margin-left: auto;
+    opacity: 0;
+    flex-shrink: 0;
+  }
+  details.nda-section.read summary .read-dot { opacity: 1; }
+  details.nda-section .nda-body {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 0 2px 12px 21px;
+  }
+  details.nda-section .nda-body p { margin: 0 0 8px; }
+  details.nda-section .nda-body p:last-child { margin-bottom: 0; }
+
+  .checkline {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+    cursor: pointer;
+  }
+  .checkline input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--navy); flex-shrink: 0; }
+  .checkline span { font-size: 13.5px; color: var(--ink); }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+  button.primary {
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--paper);
+    background: var(--navy);
+    border: none;
+    border-radius: 4px;
+    padding: 11px 20px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  button.primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  button.primary:not(:disabled):hover { opacity: 0.92; }
+  button.primary:not(:disabled):active { transform: translateY(1px); }
+  button.primary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  button.ghost {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 4px;
+  }
+  button.ghost:hover { color: var(--ink); }
+
+  .confirm-mark {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--success);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .confirm-mark svg { width: 16px; height: 16px; }
+  .confirm-mark path { stroke: var(--surface); }
+
+  .ref-code {
+    display: inline-block;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 4px 0 22px;
+  }
+
+  .next-steps { margin: 0 0 22px; padding: 0; list-style: none; }
+  .next-steps li {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .next-steps li:last-child { border-bottom: none; }
+  .next-steps b { font-weight: 600; }
+  .next-steps .n { color: var(--slate); font-weight: 600; flex-shrink: 0; }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 4px 0 20px;
+  }
+  .info-table th, .info-table td {
+    text-align: left;
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-table th {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .info-table td { color: var(--ink); }
+  .info-table th:not(:first-child), .info-table td:not(:first-child) { text-align: right; }
+  .info-table td[colspan] { text-align: left; color: var(--muted); }
+  .info-table tr:last-child td { border-bottom: none; }
+
+  .payout-note {
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 4px;
+  }
+  .payout-note + .payout-note { margin-top: 10px; }
+
+  footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <div class="brandbar">
+    <div class="brand-lockup">
+      <img src="/assets/hefestus-ring-mark-navy.svg" alt="" class="brand-logo" />
+      <div>
+        <div class="brand-mark">HEFESTUS</div>
+        <div class="brand-tag">Automated Excellence</div>
+      </div>
+    </div>
+    <div class="program-label">Referral&nbsp;Partner<br />Sign-Up</div>
+  </div>
+
+  <div class="card">
+
+    <div class="progress">
+      <div class="progress-track">
+        <div class="progress-seg" data-seg="1"></div>
+        <div class="progress-seg" data-seg="2"></div>
+        <div class="progress-seg" data-seg="3"></div>
+        <div class="progress-seg" data-seg="4"></div>
+        <div class="progress-seg" data-seg="5"></div>
+      </div>
+      <div class="progress-labels">
+        <span data-label="1">Details</span>
+        <span data-label="2">NDA</span>
+        <span data-label="3">Program</span>
+        <span data-label="4">Agreement</span>
+        <span data-label="5">Done</span>
+      </div>
+    </div>
+
+    <!-- STEP 1: Initial details -->
+    <section class="step active" data-step="1">
+      <p class="eyebrow">Step 1 of 5</p>
+      <h1>Let's get you set up.</h1>
+      <p class="lede">Two minutes. Then you're ready to introduce your first lead.</p>
+
+      <form id="form1" novalidate>
+        <div class="field" id="nameField">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="Jordan Casey" />
+          <p class="error-text">Enter your full name.</p>
+        </div>
+
+        <div class="field" id="emailField">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="jordan@company.com" />
+          <p class="error-text">Enter a valid email address.</p>
+        </div>
+
+        <div class="field">
+          <label>Referring as</label>
+          <div class="segmented" role="group" aria-label="Referrer type">
+            <button type="button" id="btnIndividual" aria-pressed="true">Individual</button>
+            <button type="button" id="btnCompany" aria-pressed="false">Company</button>
+          </div>
+        </div>
+
+        <div class="field" id="companyField">
+          <label for="companyName">Company name</label>
+          <input type="text" id="companyName" name="companyName" placeholder="Acme Industrial Partners" />
+          <p class="error-text">Enter your company name.</p>
+        </div>
+
+        <div class="field">
+          <label for="hefestusContact">Your point of contact at Hefestus (optional)</label>
+          <input type="text" id="hefestusContact" name="hefestusContact" placeholder="e.g. Ophir Nevo" />
+          <p class="hint">If you already know someone on the team, name them here.</p>
+        </div>
+
+        <div class="actions" style="justify-content: flex-end;">
+          <button type="submit" class="primary" id="toStep2">Continue</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- STEP 2: NDA signing -->
+    <section class="step" data-step="2">
+      <p class="eyebrow">Step 2 of 5</p>
+      <h1>Sign the NDA.</h1>
+      <p class="lede">Full agreement, 15 sections. Expand any section, or all of them, before you sign.</p>
+
+      <div class="nda-reader">
+        <div class="nda-toolbar">
+          <div class="reader-buttons">
+            <button type="button" class="chip-toggle" id="ndaExpandAll">Expand all</button>
+            <button type="button" class="chip-toggle" id="ndaCollapseAll">Collapse all</button>
+          </div>
+          <span class="nda-progress-note" id="ndaProgress">0 of 15 sections opened</span>
+        </div>
+        <div class="nda-jump" aria-label="Jump to NDA section">
+          <button type="button" class="nda-jump-btn" data-jump="1">1</button>
+          <button type="button" class="nda-jump-btn" data-jump="2">2</button>
+          <button type="button" class="nda-jump-btn" data-jump="3">3</button>
+          <button type="button" class="nda-jump-btn" data-jump="4">4</button>
+          <button type="button" class="nda-jump-btn" data-jump="5">5</button>
+          <button type="button" class="nda-jump-btn" data-jump="6">6</button>
+          <button type="button" class="nda-jump-btn" data-jump="7">7</button>
+          <button type="button" class="nda-jump-btn" data-jump="8">8</button>
+          <button type="button" class="nda-jump-btn" data-jump="9">9</button>
+          <button type="button" class="nda-jump-btn" data-jump="10">10</button>
+          <button type="button" class="nda-jump-btn" data-jump="11">11</button>
+          <button type="button" class="nda-jump-btn" data-jump="12">12</button>
+          <button type="button" class="nda-jump-btn" data-jump="13">13</button>
+          <button type="button" class="nda-jump-btn" data-jump="14">14</button>
+          <button type="button" class="nda-jump-btn" data-jump="15">15</button>
+        </div>
+        <div class="nda-sections" id="ndaSections" tabindex="0" aria-label="Full Non-Disclosure Agreement text">
+          <p class="nda-preamble">This Referral Program Non-Disclosure Agreement (this &ldquo;Agreement&rdquo;) is effective as of the date <strong id="ndaReferrerName">the Referrer</strong> signs it below (the &ldquo;Effective Date&rdquo;) and governs the disclosure of information between <strong>Hefestus USA Inc.</strong>, a Nevada corporation with a principal place of business at 6280 South Valley View Boulevard, SUITE 608, Las Vegas, NV 89118, together with its Representatives (&ldquo;Hefestus&rdquo; or the &ldquo;Discloser&rdquo;), and the party above, participating as <strong id="ndaReferrerType">an Individual</strong> Referrer (the &ldquo;Referrer&rdquo; or &ldquo;Recipient&rdquo;), in connection with the Referrer's participation in the Hefestus Referral Program (the &ldquo;Program&rdquo;). &ldquo;Representatives&rdquo; includes each party's respective subsidiaries and successors, assigns, legal representatives, affiliates, shareholders, employees, officers, directors, agents, advisors, attorneys, accountants and consultants.</p>
+
+          <details class="nda-section" data-section="1" open>
+            <summary>1. Purpose<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Hefestus operates the Program to receive introductions to prospective customers for its automation machinery from independent referrers. In connection with the Referrer's participation, Hefestus may disclose Confidential Information to the Referrer, and the Referrer may use such Confidential Information solely to identify, evaluate, and introduce prospective leads under the Program (the "Permitted Use"). This Agreement governs that disclosure. It does not itself set, and should not be read as setting, the referral fee amounts, payment method, or other commercial terms of the Program; those are governed separately by the Referral Partner Agreement signed in Step 4.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="2">
+            <summary>2. Confidential Information<span class="read-dot"></span></summary>
+            <div class="nda-body">
+              <p>"Confidential Information" means any and all technical and non-technical information and/or data, including but not limited to business plans, product samples and specifications, technical and non-technical materials, formulas, prototypes, ideas, methods, techniques, processes and projections, memoranda, analyses, notes, legal documents, improvements, patents (whether pending or duly registered), designs, finances, research, development, personnel, or any derivative, modification or elaboration of any such Confidential Information in whatever form, related to the past, current, future or proposed operations, products, services and business of Hefestus, its business partners, suppliers, licensors and customers. Confidential Information specifically includes, without limitation: (a) the existence, structure, and rates of the Program's referral fees and commission terms; (b) any information Hefestus discloses to the Referrer to confirm whether a prospective introduction qualifies as a lead under the Program, including whether a given company or contact already has an existing relationship or contact history with Hefestus sales or marketing; and (c) any non-public information about Hefestus's products, pricing, or roadmap shared with the Referrer in the course of the Program.</p>
+              <p>Confidential Information excludes information that the Recipient can prove by credible evidence: (i) was already known to Recipient prior to disclosure; (ii) is independently developed by or for Recipient without reference to or use of the Confidential Information; or (iii) at the time of disclosure is generally available to the public or thereafter becomes generally available to the public other than through a breach of this Agreement caused by an act or omission of the Recipient.</p>
+            </div>
+          </details>
+
+          <details class="nda-section" data-section="3">
+            <summary>3. Limitations on Use and Disclosure<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Recipient shall hold and maintain the Confidential Information in strict confidence and protect it against disclosure, using it for no purpose other than the Permitted Use. Recipient shall only permit access to Confidential Information to those of its Representatives having a need to know it in connection with the Permitted Use, who are aware of this Agreement and bound by confidentiality obligations no less restrictive than these terms. Recipient is liable for any breach by its Representatives.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="4">
+            <summary>4. Disclosure Required by Law<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Recipient may disclose Confidential Information pursuant to a court order or as otherwise required by law, provided Recipient gives Hefestus reasonable advance notice where possible, cooperates with any effort to limit the scope of disclosure, and discloses only the portion legally required. All other Confidential Information remains protected.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="5">
+            <summary>5. Standard of Care<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Recipient shall use at least a reasonable degree of care to prevent unauthorized use, dissemination, or copying of the Confidential Information, no less than the care it uses for its own confidential information, and shall notify Hefestus immediately of any loss or unauthorized disclosure or use.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="6">
+            <summary>6. Return of Confidential Information<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Upon termination or expiration of this Agreement, or upon Hefestus's written request, Recipient shall promptly return or destroy all documents and materials representing the Confidential Information and all copies thereof.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="7">
+            <summary>7. No Property Rights; No Representation; No Obligation<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Nothing in this Agreement grants any property or license rights (beyond the Permitted Use) to any Confidential Information or to any Hefestus intellectual property embodied in it. Hefestus makes no representation or warranty as to the accuracy, performance, or completeness of any Confidential Information and has no liability relating to its use. Nothing in this Agreement commits either party to enter the Program, any transaction, or any future business relationship; participation in the Program and payment of any referral fee remain governed solely by the separate Program terms.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="8">
+            <summary>8. Reproduction; Reverse Engineering<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Confidential Information shall not be reproduced except as required for the Permitted Use, and any reproduction remains Hefestus's property. Recipient shall not, and shall not permit any third party to, modify, reverse engineer, decompile, or create derivative works from any Confidential Information.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="9">
+            <summary>9. Term and Termination<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>This Agreement is effective from the Effective Date and expires one (1) year thereafter, or upon the end of Recipient's active participation in the Program if later, or may be terminated by either party upon thirty (30) days' written notice. Recipient's confidentiality obligations survive expiration or termination for five (5) years and bind Recipient's heirs, successors, and assigns.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="10">
+            <summary>10. Relationship of the Parties; Non-Circumvention<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>The Referrer participates in the Program solely as an independent introducer, not as an employee, agent, partner, or legal representative of Hefestus, and has no authority to make commitments or representations on Hefestus's behalf. The Referrer shall not use Confidential Information, or any relationship formed through the Program, to contact, solicit, or transact directly with a prospective customer outside the Program's tracking and qualification process, or to circumvent Hefestus in a manner intended to avoid a referral fee otherwise properly due to Hefestus or a third party under the Program.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="11">
+            <summary>11. Governing Law and Jurisdiction<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>This Agreement is governed by and construed under the laws of the State of Nevada, without reference to conflict-of-laws principles. The state and federal courts located in Clark County, Nevada have exclusive jurisdiction over any dispute arising under or relating to this Agreement.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="12">
+            <summary>12. Remedies<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Recipient agrees that breach of this Agreement may cause Hefestus irreparable harm for which damages alone would be inadequate, entitling Hefestus to seek injunctive relief in addition to any other remedy available at law or in equity.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="13">
+            <summary>13. Assignment<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>Recipient may not assign or transfer any rights or obligations under this Agreement without Hefestus's prior written consent.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="14">
+            <summary>14. Notices<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>All notices shall be in writing, delivered by personal delivery, electronic mail, or certified/registered mail, and deemed given upon personal delivery, five (5) days after mailing, or upon acknowledged electronic receipt, sent to the addresses set forth above or as otherwise updated in writing.</p></div>
+          </details>
+
+          <details class="nda-section" data-section="15">
+            <summary>15. General<span class="read-dot"></span></summary>
+            <div class="nda-body"><p>This Agreement may only be amended in writing signed by both parties. If any provision is found unenforceable, the remainder of the Agreement remains in effect and the invalid provision is reformed to best achieve its intent within legal limits. This Agreement is the complete and exclusive statement of the parties' agreement on this subject matter and supersedes all prior discussions or agreements on it. Signing electronically (checking the box and typing your name below) is a legally binding signature under the U.S. ESIGN Act; email us any time if you'd rather have a paper copy.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <label class="checkline" for="ndaCheck">
+        <input type="checkbox" id="ndaCheck" />
+        <span>I've read and agree to the Non-Disclosure Agreement.</span>
+      </label>
+
+      <div class="field" id="ndaSignField">
+        <label for="ndaSignature">Type your full name to sign</label>
+        <input type="text" id="ndaSignature" name="ndaSignature" placeholder="Jordan Casey" />
+        <p class="error-text">Type your name to sign.</p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="ghost" id="backToStep1">Back</button>
+        <button type="button" class="primary" id="toStep3" disabled>Sign &amp; continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Program main points (informational, no signature) -->
+    <section class="step" data-step="3">
+      <p class="eyebrow">Step 3 of 5</p>
+      <h1>How the program works.</h1>
+      <p class="lede">Here's exactly what you're signing up for, no signature needed yet.</p>
+
+      <ul class="next-steps">
+        <li><span class="n">1</span><span>Introduce a cold lead, <b>no contact with us in the last 6 months.</b></span></li>
+        <li><span class="n">2</span><span>We qualify it and <b>log it under your name in HubSpot.</b></span></li>
+        <li><span class="n">3</span><span>Their deal closes <b>within 12 months of your intro.</b></span></li>
+        <li><span class="n">4</span><span><b>You get paid</b>, no chasing, no invoicing back and forth.</span></li>
+      </ul>
+
+      <table class="info-table">
+        <thead>
+          <tr><th>Machine</th><th>Commission</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AuraX</td><td>$5,000 flat</td></tr>
+          <tr><td>LumineX</td><td>$1,500 flat</td></tr>
+          <tr><td>Other machinery</td><td>3% of sale</td></tr>
+          <tr><td>AutoTube</td><td>$3,500 flat</td></tr>
+        </tbody>
+      </table>
+
+      <p class="payout-note">Paid via wire transfer or credit card. We don't collect payout details at sign-up, we'll follow up securely once your first referral closes.</p>
+      <p class="payout-note">A referral stays open for 12 months from the intro date. If it closes after that, it no longer qualifies.</p>
+      <p class="payout-note">No quota, no exclusivity, refer whenever you have someone worth introducing.</p>
+
+      <div class="actions" style="justify-content: space-between;">
+        <button type="button" class="ghost" id="backToStep2">Back</button>
+        <button type="button" class="primary" id="toStep4">Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 4: Full agreement signing -->
+    <section class="step" data-step="4">
+      <p class="eyebrow">Step 4 of 5</p>
+      <h1>Sign the referral agreement.</h1>
+      <p class="lede">This locks in the terms you just saw, read it below, then sign.</p>
+
+      <div class="agreement-box" tabindex="0" aria-label="Referral partner agreement summary">
+        <h2>Referral process</h2>
+        <p>Your introduction qualifies if the contact hasn't spoken to Hefestus sales or marketing in the last 6 months. We check this against our CRM and log it under your name the moment you send it over. To stay qualified, the deal has to close within 12 months of that date, a referral doesn't stay open indefinitely.</p>
+        <h2>Reward</h2>
+        <p>AuraX pays $5,000 flat, LumineX pays $1,500 flat, other Hefestus machinery pays 3% of sale price, and AutoTube pays $3,500 flat, per closed sale. Paid in full once your referred deal closes, via wire transfer or credit card, we'll collect payout details securely after that, never as part of sign-up.</p>
+        <h2>No employment, no exclusivity</h2>
+        <p>This doesn't make you an employee or agent of Hefestus. Step away any time with written notice; anything already tracked in HubSpot before you do stays payable on qualifying close.</p>
+        <h2>Governing law</h2>
+        <p>Governed by the laws of the State of Nevada. Any dispute is handled in the courts of Clark County, Nevada.</p>
+      </div>
+
+      <label class="checkline" for="agreementCheck">
+        <input type="checkbox" id="agreementCheck" />
+        <span>I've read and agree to the Referral Partner Agreement above.</span>
+      </label>
+
+      <div class="field" id="agreementSignField">
+        <label for="agreementSignature">Type your full name to sign</label>
+        <input type="text" id="agreementSignature" name="agreementSignature" placeholder="Jordan Casey" />
+        <p class="error-text">Type your name to sign.</p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="ghost" id="backToStep3">Back</button>
+        <button type="button" class="primary" id="toStep5" disabled>Sign &amp; continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 5: Confirmation -->
+    <section class="step" data-step="5">
+      <div class="confirm-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12.5L9.5 18L20 6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 id="welcomeHeading">You're in.</h1>
+      <p class="lede">Your reference code, keep it handy if you ever need to follow up on a referral.</p>
+      <span class="ref-code" id="refCode">HRP-0000</span>
+
+      <ul class="next-steps">
+        <li><span class="n">1</span><span>Introduce a cold lead, <b>no contact with us in the last 6 months.</b></span></li>
+        <li><span class="n">2</span><span>We qualify it and <b>log it under your name in HubSpot.</b></span></li>
+        <li><span class="n">3</span><span>Deal closes within 12 months, <b>you get paid.</b></span></li>
+      </ul>
+
+      <p class="payout-note">Your NDA and referral agreement are both on file. We'll follow up separately about how you'd like to get paid before your first referral closes.</p>
+    </section>
+
+  </div>
+
+  <footer>Copyright 2026 Hefestus Technologies. Referral Partner Program.</footer>
+</div>
+
+<script>
+  (function () {
+    var LAST_STEP = 5;
+    var state = { name: "", email: "", type: "individual", company: "", hefestusContact: "" };
+
+    function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    function showStep(n) {
+      document.querySelectorAll(".step").forEach(function (el) {
+        el.classList.toggle("active", el.dataset.step === String(n));
+      });
+      document.querySelectorAll(".progress-seg").forEach(function (seg) {
+        var idx = Number(seg.dataset.seg);
+        seg.classList.remove("done", "active");
+        if (idx < n || (idx === n && n === LAST_STEP)) seg.classList.add("done");
+        else if (idx === n) seg.classList.add("active");
+      });
+      document.querySelectorAll(".progress-labels span").forEach(function (label) {
+        label.classList.toggle("current", label.dataset.label === String(n));
+      });
+    }
+
+    function toggleInvalid(fieldId, invalid) {
+      document.getElementById(fieldId).classList.toggle("invalid", invalid);
+    }
+
+    // --- Step 1: initial details ---
+    var btnIndividual = document.getElementById("btnIndividual");
+    var btnCompany = document.getElementById("btnCompany");
+    var companyField = document.getElementById("companyField");
+
+    function setType(type) {
+      state.type = type;
+      btnIndividual.setAttribute("aria-pressed", String(type === "individual"));
+      btnCompany.setAttribute("aria-pressed", String(type === "company"));
+      companyField.classList.toggle("shown", type === "company");
+    }
+    btnIndividual.addEventListener("click", function () { setType("individual"); });
+    btnCompany.addEventListener("click", function () { setType("company"); });
+
+    document.getElementById("form1").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nameEl = document.getElementById("fullName");
+      var emailEl = document.getElementById("email");
+      var companyEl = document.getElementById("companyName");
+      var ok = true;
+
+      toggleInvalid("nameField", nameEl.value.trim().length < 2); ok = ok && nameEl.value.trim().length >= 2;
+      toggleInvalid("emailField", !isEmail(emailEl.value.trim())); ok = ok && isEmail(emailEl.value.trim());
+      if (state.type === "company") {
+        toggleInvalid("companyField", companyEl.value.trim().length < 2);
+        ok = ok && companyEl.value.trim().length >= 2;
+      }
+
+      if (!ok) return;
+      state.name = nameEl.value.trim();
+      state.email = emailEl.value.trim();
+      state.company = companyEl.value.trim();
+      state.hefestusContact = document.getElementById("hefestusContact").value.trim();
+      document.getElementById("ndaSignature").value = state.name;
+      document.getElementById("ndaReferrerName").textContent = state.name;
+      document.getElementById("ndaReferrerType").textContent = state.type === "company" ? "a Company" : "an Individual";
+      checkNdaReady();
+      showStep(2);
+    });
+
+    // --- Step 2: NDA signing ---
+    var ndaCheck = document.getElementById("ndaCheck");
+    var ndaSignature = document.getElementById("ndaSignature");
+    var toStep3 = document.getElementById("toStep3");
+
+    function checkNdaReady() {
+      var ready = ndaCheck.checked && ndaSignature.value.trim().length >= 2;
+      toStep3.disabled = !ready;
+      toggleInvalid("ndaSignField", ndaSignature.value.trim().length > 0 && ndaSignature.value.trim().length < 2);
+    }
+    ndaCheck.addEventListener("change", checkNdaReady);
+    ndaSignature.addEventListener("input", checkNdaReady);
+
+    // --- Step 2: full NDA reader (expand/collapse, jump nav, read progress) ---
+    var ndaSectionEls = Array.prototype.slice.call(document.querySelectorAll("#ndaSections details.nda-section"));
+    var ndaProgressEl = document.getElementById("ndaProgress");
+    var ndaReadCount = 0;
+
+    function markNdaRead(el) {
+      if (el.classList.contains("read")) return;
+      el.classList.add("read");
+      ndaReadCount++;
+      var jumpBtn = document.querySelector('.nda-jump-btn[data-jump="' + el.dataset.section + '"]');
+      if (jumpBtn) jumpBtn.classList.add("read");
+      ndaProgressEl.textContent = ndaReadCount + " of " + ndaSectionEls.length + " sections opened";
+    }
+
+    ndaSectionEls.forEach(function (el) {
+      if (el.open) markNdaRead(el);
+      el.addEventListener("toggle", function () {
+        if (el.open) markNdaRead(el);
+      });
+    });
+
+    document.getElementById("ndaExpandAll").addEventListener("click", function () {
+      ndaSectionEls.forEach(function (el) { el.open = true; markNdaRead(el); });
+    });
+    document.getElementById("ndaCollapseAll").addEventListener("click", function () {
+      ndaSectionEls.forEach(function (el) { el.open = false; });
+    });
+
+    document.querySelectorAll(".nda-jump-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var target = document.querySelector('.nda-section[data-section="' + btn.dataset.jump + '"]');
+        if (!target) return;
+        target.open = true;
+        markNdaRead(target);
+        target.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
+    });
+
+    document.getElementById("backToStep1").addEventListener("click", function () { showStep(1); });
+
+    toStep3.addEventListener("click", function () {
+      if (toStep3.disabled) return;
+      document.getElementById("agreementSignature").value = ndaSignature.value.trim();
+      showStep(3);
+    });
+
+    // --- Step 3: program main points (informational) ---
+    document.getElementById("backToStep2").addEventListener("click", function () { showStep(2); });
+    document.getElementById("toStep4").addEventListener("click", function () { showStep(4); });
+
+    // --- Step 4: full agreement signing ---
+    var agreementCheck = document.getElementById("agreementCheck");
+    var agreementSignature = document.getElementById("agreementSignature");
+    var toStep5 = document.getElementById("toStep5");
+
+    function checkAgreementReady() {
+      var ready = agreementCheck.checked && agreementSignature.value.trim().length >= 2;
+      toStep5.disabled = !ready;
+      toggleInvalid("agreementSignField", agreementSignature.value.trim().length > 0 && agreementSignature.value.trim().length < 2);
+    }
+    agreementCheck.addEventListener("change", checkAgreementReady);
+    agreementSignature.addEventListener("input", checkAgreementReady);
+
+    document.getElementById("backToStep3").addEventListener("click", function () { showStep(3); });
+
+    toStep5.addEventListener("click", function () {
+      if (toStep5.disabled) return;
+      var firstName = state.name.split(" ")[0] || "there";
+      document.getElementById("welcomeHeading").textContent = "You're in, " + firstName + ".";
+      var year = new Date().getFullYear();
+      var suffix = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById("refCode").textContent = "HRP-" + year + "-" + suffix;
+      showStep(5);
+    });
+
+    showStep(1);
+  })();
+</script>
+</body>
+</html>

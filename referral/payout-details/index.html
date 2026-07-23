@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hefestus Referral Payout Details</title>
+<meta name="description" content="Secure payout details for a closed Hefestus referral." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.hefestus-cannabis.com/referral/payout-details/" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hefestus Referral Payout Details">
+<meta property="og:description" content="Secure payout details for a closed Hefestus referral.">
+<meta property="og:url" content="https://www.hefestus-cannabis.com/referral/payout-details/">
+<meta property="og:image" content="https://www.hefestus-cannabis.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hefestus Referral Payout Details">
+<meta name="twitter:description" content="Secure payout details for a closed Hefestus referral.">
+<meta name="twitter:image" content="https://www.hefestus-cannabis.com/assets/og-image.png">
+<!--
+  PROTOTYPE, front-end only, no backend wired up. Same status as referral/index.html.
+  Source of truth is O-output/02-referral-program-rollout/signup-website/payout-details.html;
+  this is a hosted mirror, resync from there on future edits, do not edit only this copy.
+
+  WHY THIS IS A SEPARATE PAGE, NOT A STEP IN referral/index.html's SIGN-UP FLOW:
+  draft-referral-agreement.md Section 5 and the site's own copy both promise payout
+  details are "not collected as part of Program sign-up", collected securely, only
+  after a referral actually reaches Closed Sale. Putting a bank-account or card form
+  on the public sign-up page would collect sensitive financial data from every visitor,
+  most of whom will never have a closing referral. This page is meant to be reached only
+  via a unique, non-guessable link sent to a specific referrer after their referral closes
+  (e.g. https://www.hefestus-cannabis.com/referral/payout-details/?ref=HRP-2026-4821), not
+  linked from referral/index.html or anywhere else on the public site.
+
+  BEFORE THIS GOES LIVE (see T-tools/04-it-processes/referral-signup-hubspot-connection-process.md):
+  1. The ?ref= code must be verified server-side against a real Closed Sale record before
+     this form is even shown, right now this prototype has no backend to check that,
+     so it cannot actually gate access. Do not treat a real link as secure until that
+     check exists.
+  2. Wire transfer fields below should be submitted over HTTPS to a backend that encrypts
+     them at rest and restricts read access; they should NOT be stored as a plain HubSpot
+     text property (see the Contact-property list in the process doc, payout_method_preference
+     records the CHOICE, never the account number itself).
+  3. Card payout is intentionally NOT a raw card-number field here, collecting card numbers
+     directly puts Hefestus in PCI-DSS scope. The card path below is a placeholder for a
+     real payment processor's hosted, PCI-compliant element (e.g. Stripe's payout/Connect
+     flow) which Ophir needs to actually set up an account for. Do not replace the
+     placeholder with a plain <input> for card number/CVV.
+  4. Wire payouts are a common business-email-compromise target: verify new or changed
+     wire instructions by a second channel (a phone call to a known number) before any
+     wire goes out, every time, no exceptions for "regular" referrers.
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+  :root {
+    --navy: #2D3954; --slate: #7C8CA5; --steel: #475A75; --grey: #DFE0DC;
+    --paper: #F6F5F1; --surface: #FFFFFF; --ink: #20293A; --muted: #5C6B82;
+    --border: #DCDCD5; --success: #4C7A5E; --danger: #B3483F; --focus: #475A75;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #151A22; --surface: #1D242F; --ink: #E8E9E4; --muted: #9FADC2; --border: #333E4E; --navy: #C4CEDC; --slate: #9FB0C7; --steel: #9FB0C7; --success: #7FB99A; --danger: #E08579; --focus: #9FB0C7; }
+  }
+  :root[data-theme="dark"] { --paper: #151A22; --surface: #1D242F; --ink: #E8E9E4; --muted: #9FADC2; --border: #333E4E; --navy: #C4CEDC; --slate: #9FB0C7; --steel: #9FB0C7; --success: #7FB99A; --danger: #E08579; --focus: #9FB0C7; }
+  :root[data-theme="light"] { --paper: #F6F5F1; --surface: #FFFFFF; --ink: #20293A; --muted: #5C6B82; --border: #DCDCD5; --navy: #2D3954; --slate: #7C8CA5; --steel: #475A75; --success: #4C7A5E; --danger: #B3483F; --focus: #475A75; }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; font-family: 'Rubik', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink); background-color: var(--paper); min-height: 100%;
+    display: flex; align-items: center; justify-content: center; padding: 32px 20px; line-height: 1.5;
+  }
+  .frame { width: 100%; max-width: 480px; }
+  .brandbar { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px; padding: 0 4px; }
+  .brand-lockup { display: flex; align-items: center; gap: 8px; }
+  .brand-logo { height: 26px; width: auto; flex-shrink: 0; }
+  .brand-mark { font-weight: 700; font-size: 19px; letter-spacing: 0.02em; color: var(--ink); }
+  .brand-tag { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); margin-top: 2px; }
+  .program-label { font-size: 12px; font-weight: 500; color: var(--muted); text-align: right; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 36px 32px 30px; box-shadow: 0 1px 2px rgba(20, 24, 32, 0.04); }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel); margin: 0 0 10px; }
+  h1 { font-size: 23px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 8px; }
+  .lede { font-size: 14px; color: var(--muted); margin: 0 0 22px; }
+  .notice {
+    font-size: 12.5px; color: var(--muted); background: var(--paper); border: 1px solid var(--border);
+    border-radius: 4px; padding: 12px 14px; margin-bottom: 22px;
+  }
+  .field { margin-bottom: 16px; }
+  label { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  input[type="text"] {
+    width: 100%; padding: 10px 12px; font-family: inherit; font-size: 14px; color: var(--ink);
+    background: var(--paper); border: 1px solid var(--border); border-radius: 4px; outline: none;
+  }
+  .segmented { display: flex; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 20px; }
+  .segmented button {
+    flex: 1; padding: 10px; font-family: inherit; font-size: 13.5px; font-weight: 500;
+    color: var(--muted); background: var(--paper); border: none; cursor: pointer;
+  }
+  .segmented button + button { border-left: 1px solid var(--border); }
+  .segmented button[aria-pressed="true"] { background: var(--navy); color: var(--paper); }
+  .method-panel { display: none; }
+  .method-panel.active { display: block; }
+  .card-placeholder {
+    border: 1px dashed var(--border); border-radius: 4px; padding: 20px; text-align: center;
+    color: var(--muted); font-size: 13px; margin-bottom: 16px;
+  }
+  .card-placeholder b { display: block; color: var(--ink); font-size: 13.5px; margin-bottom: 4px; }
+  button.primary {
+    font-family: inherit; font-size: 14.5px; font-weight: 600; color: var(--paper); background: var(--navy);
+    border: none; border-radius: 4px; padding: 11px 20px; cursor: pointer; width: 100%;
+  }
+  button.primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  .fraud-note { font-size: 12px; color: var(--danger); margin-top: 14px; }
+  footer { text-align: center; font-size: 11.5px; color: var(--muted); margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="brandbar">
+    <div class="brand-lockup">
+      <img src="/assets/hefestus-ring-mark-navy.svg" alt="" class="brand-logo" />
+      <div><div class="brand-mark">HEFESTUS</div><div class="brand-tag">Automated Excellence</div></div>
+    </div>
+    <div class="program-label">Payout&nbsp;Details</div>
+  </div>
+  <div class="card">
+    <p class="eyebrow">Referral closed, one last step</p>
+    <h1>Where should we send your payout?</h1>
+    <p class="lede">This page is only for a referral that's already closed. Details here are handled separately from your original sign-up.</p>
+
+    <p class="notice">Reference code: <b id="refDisplay">...</b>. If this isn't your reference code, don't enter your payout details here, contact us to confirm first.</p>
+
+    <div class="segmented" role="group" aria-label="Payout method">
+      <button type="button" id="btnWire" aria-pressed="true">Wire transfer</button>
+      <button type="button" id="btnCard" aria-pressed="false">Credit card</button>
+    </div>
+
+    <form id="payoutForm">
+      <div class="method-panel active" id="wirePanel">
+        <div class="field"><label for="bankName">Bank name</label><input type="text" id="bankName" placeholder="First National Bank" /></div>
+        <div class="field"><label for="acctHolder">Account holder name</label><input type="text" id="acctHolder" placeholder="Jordan Casey" /></div>
+        <div class="field"><label for="acctNumber">Account number</label><input type="text" id="acctNumber" placeholder="•••• •••• 1234" /></div>
+        <div class="field"><label for="routingNumber">Routing number (US) / SWIFT + IBAN (international)</label><input type="text" id="routingNumber" placeholder="021000021" /></div>
+      </div>
+
+      <div class="method-panel" id="cardPanel">
+        <div class="card-placeholder">
+          <b>Card payout goes through our payment processor, not this form.</b>
+          Hefestus does not collect or store card numbers directly. This is a placeholder for a real processor's hosted, PCI-compliant payout flow (e.g. Stripe), not yet connected.
+        </div>
+      </div>
+
+      <button type="submit" class="primary" id="submitBtn">Submit payout details</button>
+      <p class="fraud-note">We will never ask you to confirm or change payout details by email alone. If you receive a request to update these details, call your Hefestus point of contact directly to verify before responding.</p>
+    </form>
+  </div>
+  <footer>Copyright 2026 Hefestus Technologies. Referral Partner Program.</footer>
+</div>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get("ref");
+    document.getElementById("refDisplay").textContent = ref || "(none provided in link)";
+
+    var btnWire = document.getElementById("btnWire");
+    var btnCard = document.getElementById("btnCard");
+    var wirePanel = document.getElementById("wirePanel");
+    var cardPanel = document.getElementById("cardPanel");
+    var submitBtn = document.getElementById("submitBtn");
+
+    function setMethod(method) {
+      btnWire.setAttribute("aria-pressed", String(method === "wire"));
+      btnCard.setAttribute("aria-pressed", String(method === "card"));
+      wirePanel.classList.toggle("active", method === "wire");
+      cardPanel.classList.toggle("active", method === "card");
+      submitBtn.disabled = method === "card"; // no working card flow without a real processor
+      submitBtn.textContent = method === "card" ? "Connect a payment processor first" : "Submit payout details";
+    }
+    btnWire.addEventListener("click", function () { setMethod("wire"); });
+    btnCard.addEventListener("click", function () { setMethod("card"); });
+
+    document.getElementById("payoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      // PROTOTYPE: no backend. A real submit must POST over HTTPS to a server that
+      // (1) re-verifies `ref` against an actual Closed Sale record, (2) encrypts the
+      // wire fields at rest, and (3) never logs them in plaintext anywhere (including
+      // application logs). Not implemented here, see the IT process doc.
+      alert("Prototype only, this does not actually submit anywhere yet. See T-tools/04-it-processes/referral-signup-hubspot-connection-process.md for what needs to be built first.");
+    });
+  })();
+</script>
+</body>
+</html>
