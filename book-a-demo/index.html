@@ -266,6 +266,8 @@ footer.site a:hover{color:var(--mint)}
         target: "#hubspot-book-a-demo-form",
         onFormReady: function ($form) {
           $form.find('[name="lead_source_detail"]').val('hefestus-cannabis site');
+          $form.find('input[name="lead_attribution"][value="Cannabis Website"]').prop('checked', true);
+          $form.find('input[name="lead_attribution"]').closest('.hs-form-field').hide();
         }
       });
     </script>

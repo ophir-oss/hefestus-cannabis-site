@@ -942,7 +942,9 @@
             { name: "email", value: state.email },
             { name: "company", value: state.company || "" },
             { name: "message", value: messageParts.join(". ") },
-            { name: "lead_source_detail", value: "hefestus-cannabis referral signup" }
+            { name: "lead_source_detail", value: "hefestus-cannabis referral signup" },
+            { name: "lifecyclestage", value: "other" },
+            { name: "lead_attribution", value: "Referral Form" }
           ],
           context: { pageUri: window.location.href, pageName: document.title }
         })
