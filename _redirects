@@ -1,0 +1,5 @@
+# Netlify redirects file. /blog is the legacy site's one confirmed-empty stub worth a
+# redirect (see T-tools/04-it-processes/hefestus-cannabis-wix-migration-process.md);
+# /country and /events-page carried negligible content and negligible risk, so they are
+# left to 404 rather than redirected to anything.
+/blog /resources/ 301
